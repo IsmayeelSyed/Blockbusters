@@ -503,7 +503,7 @@ function Board({ cells, oneAwayP1, oneAwayP2, onPick }:{ cells: DBCell[], oneAwa
           const y = cell.row_idx * (HEX_H + ROW_GAP) + (cell.col_idx % 2 === 0 ? 0 : (HEX_H + ROW_GAP) / 2);
           const isOneAwayP1 = oneAwayP1.has(`${cell.row_idx}-${cell.col_idx}`);
           const isOneAwayP2 = oneAwayP2.has(`${cell.row_idx}-${cell.col_idx}`);
-          const isHot = cell.owner === null and (isOneAwayP1 or isOneAwayP2);
+          const isHot = cell.owner === null && (isOneAwayP1 || isOneAwayP2);
           return (
             <g key={`${cell.row_idx}-${cell.col_idx}`} transform={`translate(${x}, ${y})`}>
               <polygon
