@@ -192,7 +192,8 @@ async function fetchQuestion(letter: string): Promise<MCQ> {
 
   const base = DEMO_QBANK[letter] ?? {
     prompt: `Pick the option that starts with "${letter}"`,
-    correct: f"{letter}{letter.lower()}-answer",
+    correct: `${letter}${letter.toLowerCase()}-answer`,
+    const options = shuffle([base.correct, ...base.distractors]);
     distractors: ["Alpha", "Beta", "Gamma"],
   };
   const options = shuffle([base.correct, *base.distractors]) as string[];
